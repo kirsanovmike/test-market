@@ -1,10 +1,15 @@
 <template>
   <v-container fluid>
+    <p>
+      Если у Ваас возникли к нам вопросы, пожалуйста, заполните форму и мы
+      вернемся к Вам с обратной связью
+    </p>
+
     <form>
       <v-text-field
         v-model="name"
         :error-messages="nameErrors"
-        :counter="10"
+        :counter="30"
         label="Ваше имя"
         required
         @input="$v.name.$touch()"
@@ -30,16 +35,16 @@
       <v-checkbox
         v-model="checkbox"
         :error-messages="checkboxErrors"
-        label="Do you agree?"
+        label="Согласен с соглашением об обработке запроса"
         required
         @change="$v.checkbox.$touch()"
         @blur="$v.checkbox.$touch()"
       ></v-checkbox>
 
       <v-btn class="mr-4" :disabled="$v.$invalid" @click="submit">
-        submit
+        Отправить
       </v-btn>
-      <v-btn @click="clear"> clear </v-btn>
+      <v-btn @click="clear"> Очистить </v-btn>
     </form>
   </v-container>
 </template>
@@ -53,7 +58,7 @@ export default {
   mixins: [validationMixin],
 
   validations: {
-    name: { required, maxLength: maxLength(10) },
+    name: { required, maxLength: maxLength(30) },
     email: { required, email },
     select: { required },
     checkbox: {
@@ -92,7 +97,7 @@ export default {
       const errors = [];
       if (!this.$v.name.$dirty) return errors;
       if (!this.$v.name.maxLength) {
-        errors.push("Максимум 10");
+        errors.push("Максимум 30");
       }
       if (!this.$v.name.required) {
         errors.push("Знанчение должно быть передано");
