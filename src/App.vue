@@ -5,15 +5,41 @@
         class="d-flex align-center justify-space-between pa-4"
         style="width: 100%"
       >
-        <div class="d-flex align-start flex-column">
-          <h2 class="mb-0 pl-0 ml-0 card--text mb-1">MShop</h2>
-          <p class="card--text mb-0">Clothing mens shop</p>
+        <div class="d-flex align-center justify-space-between pa-4">
+          <div class="d-flex align-start flex-column">
+            <h2 class="mb-0 pl-0 ml-0 card--text mb-1">MShop</h2>
+            <p class="card--text mb-0">Clothing mens shop</p>
+          </div>
+          <v-btn
+            v-if="$route.name !== 'home'"
+            color="primary"
+            elevation="0"
+            small
+            to="/"
+            class="mr-4"
+          >
+            Домой
+          </v-btn>
         </div>
         <div class="d-flex align-center">
-          <v-btn color="primary" elevation="0" small to="/activities">Виды деятельности</v-btn>
-          <v-btn color="primary" elevation="0" small class="ml-1" to="/catalog">Каталог</v-btn>
-          <v-btn color="primary" elevation="0" small class="ml-1" to="/contacts">Контакты</v-btn>
-          <v-btn color="primary" elevation="0" small class="ml-1" to="/news">Новости</v-btn>
+          <v-btn color="primary" elevation="0" small to="/activities">
+            Виды деятельности
+          </v-btn>
+          <v-btn color="primary" elevation="0" small class="ml-1" to="/catalog">
+            Каталог
+          </v-btn>
+          <v-btn
+            color="primary"
+            elevation="0"
+            small
+            class="ml-1"
+            to="/contacts"
+          >
+            Контакты
+          </v-btn>
+          <v-btn color="primary" elevation="0" small class="ml-1" to="/news">
+            Новости
+          </v-btn>
         </div>
         <div class="d-flex align-end flex-column mt-1">
           <h3 class="mb-0 pl-0 ml-0 card--text mb-1">
@@ -26,7 +52,7 @@
       <v-spacer></v-spacer>
     </v-app-bar>
 
-    <v-main>
+    <v-main class="px-8 mt-8">
       <router-view />
     </v-main>
   </v-app>
